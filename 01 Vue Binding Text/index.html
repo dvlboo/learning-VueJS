@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Binding Text</title>
+
+  <!-- CDN Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>
+      {{data}}
+    </div>
+
+    <!-- V-Text Vue -->
+    <div v-text="message">
+      Ini data pada konten
+    </div>
+
+    <!-- V-Html Vue -->
+    <div v-html="code">
+      Data awal seperti ini
+    </div>
+
+    <hr>
+
+    <h3>Masukkan Inputan</h3>
+    <input type="text" v-model="inputUser">
+    <p> Hasil inputan : {{inputUser}} </p>
+
+  </div>
+
+  <!-- Script Vue -->
+  <script>
+    const {createApp, ref} = Vue 
+
+    createApp ({
+      setup() {
+        return {
+          data : "Ini adalah data pada Vue",
+          message : "Ini pesan untuk replace data konten",
+          code : "<strong>Kalimat ini tebal</strong>",
+          inputUser : ref('')
+        }
+      }
+
+    }).mount('#app')
+  </script>
+</body>
+</html>

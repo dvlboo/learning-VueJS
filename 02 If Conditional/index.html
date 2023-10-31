@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>If Conditional</title>
+
+  <!-- CDN Vue -->
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+</head>
+<body>
+  
+  <!-- Konten -->
+  <div id="app">
+    <p>
+      {{message}}
+    </p>
+    <input type="number" min="0" max="100" v-model="nilai">
+    <div v-if>
+      <p v-if="nilai >= 90">{{ messageNilaiA }}</p>
+      <p v-else-if="nilai >= 80">{{ messageNilaiB }}</p>
+      <p v-else-if="nilai >= 70">{{ messageNilaiC }}</p>
+      <p v-else-if="nilai >= 60">{{ messageNilaiD }}</p>
+      <p v-else-if="nilai >= 1">{{ messageNilaiE }}</p>
+      <p v-else>{{ messageElse }}</p>
+    </div>
+  </div>
+
+  <!-- Script Vue -->
+  <script type="module">
+    import { createApp,ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    createApp ({
+      setup() {
+        return {
+          message : "Masukkan Nilai Anda",
+          messageNilaiA : "Anda mendapat nilai A",
+          messageNilaiB : "Anda mendapat nilai B",
+          messageNilaiC : "Anda mendapat nilai C",
+          messageNilaiD : "Anda mendapat nilai D",
+          messageNilaiE : "Anda mendapat nilai E",
+          messageElse : "Anda Belum Input Nilai",
+          nilai : ref(null)
+        }
+      }
+    }).mount('#app')
+  </script>
+
+</body>
+</html>

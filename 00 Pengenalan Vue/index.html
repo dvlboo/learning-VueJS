@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intorduce Vue</title>
+
+  <!-- Menyispkan CDN VueJS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <!-- Menggunakan CDN -->
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <!-- Menggunakan Import Module-->
+  <div id="app2">
+    {{ message }}
+
+    <br>
+
+    <button @click="kurang()">-</button>
+    {{ count }}
+    <button @click="tambah()">+</button>
+
+  </div>
+
+
+  <!-- Script Vue CDN -->
+
+  <script>
+    const {createApp} = Vue
+
+    createApp ({
+      data(){ 
+        return {
+          message : "Hai, ini memakai CDN"
+        }
+      }
+    }).mount('#app')
+  </script>
+
+
+  <!-- Script Vue Import Module -->
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    createApp({
+      data() {
+        return {
+          message: "Hai, ini memakai Import Module",
+          count: 0
+        }
+      },
+      methods: {
+        tambah() {
+          this.count++
+        },
+        kurang() {
+          this.count--
+        }
+      }
+    }).mount('#app2')
+  </script>
+
+</body>
+</html>
